@@ -11,7 +11,6 @@ import pandas as pd
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 logger = logging.getLogger()
 
-
 def go(args):
 
     run = wandb.init(job_type="a very basic data cleaning")
