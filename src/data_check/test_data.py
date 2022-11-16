@@ -6,6 +6,7 @@ import wandb
 
 
 def test_column_names(data):
+    """ test if the dataset contains all required columns"""
     expected_colums = [
         "id",
         "name",
@@ -32,6 +33,7 @@ def test_column_names(data):
 
 
 def test_neighborhood_names(data):
+    """ test if the neighborhood_group column contains all the specified neighborhood classes"""
     known_names = ["Bronx", "Brooklyn", "Manhattan", "Queens", "Staten Island"]
 
     neigh = set(data['neighbourhood_group'].unique())
@@ -64,10 +66,12 @@ def test_similar_neigh_distrib(data: pd.DataFrame, ref_data: pd.DataFrame, kl_th
 # Implement here test_row_count and test_price_range   #
 ########################################################
 def test_row_count(data):
+    """ test if the dataset contains reasonable amount of data"""
     assert 15000 < data.shape[0] < 1000000
 
 
 def test_price_range(data, min_price, max_price):
+    """ test if price column contains extreme data points"""
     assert data['price'].between(min_price, max_price).all()
 
 
